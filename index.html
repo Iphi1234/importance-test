@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Important is Someone to You?</title>
+  <style>
+    /* Initially display English and hide Greek */
+    .lang-gr { display: none; }
+    .toggle-container {
+      margin: 20px;
+      text-align: center;
+    }
+    .toggle-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    /* Optional: Styling for the test content */
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h1, h2 { color: #333; }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+    <button id="toggleLang" class="toggle-button">Switch to Greek</button>
+  </div>
+  
+  <div id="content">
+    <!-- English Content -->
+    <div class="lang-en">
+      <h1>How Important is Someone to You?</h1>
+      <p><strong>Introduction:</strong> This test helps you measure how important someone is in your life. Answer the questions honestly, and at the end, you’ll receive a personalized result that reflects your true feelings.</p>
+      <h2>Preliminary Question:</h2>
+      <p>Before starting, please choose the nature of your relationship with this person:</p>
+      <ul>
+        <li>A friend</li>
+        <li>A romantic partner / Someone you love</li>
+      </ul>
+      <!-- Insert the rest of your test questions in English here -->
+    </div>
+    
+    <!-- Greek Content -->
+    <div class="lang-gr">
+      <h1>Πόσο Σημαντικός/ή Είναι για Σένα Κάποιος;</h1>
+      <p><strong>Εισαγωγή:</strong> Αυτό το τεστ σε βοηθά να μετρήσεις πόσο σημαντικός/ή είναι για σένα κάποιος. Απάντησε στις ερωτήσεις ειλικρινά και στο τέλος θα λάβεις ένα εξατομικευμένο αποτέλεσμα που αντανακλά τα αληθινά σου συναισθήματα.</p>
+      <h2>Προκαταρκτική Ερώτηση:</h2>
+      <p>Πριν ξεκινήσεις, παρακαλώ επίλεξε τη φύση της σχέσης σου με αυτό το άτομο:</p>
+      <ul>
+        <li>Ένας φίλος/μια φίλη</li>
+        <li>Ένας ερωτικός/μια ερωτική σύντροφος / Κάποιος που αγαπάς</li>
+      </ul>
+      <!-- Insert the rest of your test questions in Greek here -->
+    </div>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggleLang');
+    toggleButton.addEventListener('click', function() {
+      const englishContent = document.querySelector('.lang-en');
+      const greekContent = document.querySelector('.lang-gr');
+      // Toggle display of languages
+      if (englishContent.style.display === 'none') {
+        englishContent.style.display = 'block';
+        greekContent.style.display = 'none';
+        toggleButton.textContent = 'Switch to Greek';
+      } else {
+        englishContent.style.display = 'none';
+        greekContent.style.display = 'block';
+        toggleButton.textContent = 'Switch to English';
+      }
+    });
+  </script>
+</body>
+</html>
