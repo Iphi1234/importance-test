@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Important is Someone to You?</title>
+  <style>
+    /* Initially display English and hide Greek */
+    .lang-gr { display: none; }
+    .toggle-container {
+      margin: 20px;
+      text-align: center;
+    }
+    .toggle-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h1, h2 { color: #333; }
+    fieldset { margin-bottom: 15px; padding: 10px; }
+    .hidden { display: none; }
+    .result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; text-align: center; }
+    .result img { width: 150px; height: 150px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+    <button id="toggleLang" class="toggle-button">Switch to Greek</button>
+  </div>
+
+  <div id="content">
+    <!-- English Content -->
+    <div class="lang-en">
+      <h1>How Important is Someone to You?</h1>
+      <p><strong>Introduction:</strong> This test helps you measure how important someone is in your life. Answer the questions honestly, and at the end you’ll receive a personalized result that reflects your true feelings.</p>
+      
+      <form id="testForm_en">
+        <!-- Preliminary question -->
+        <h2>Preliminary Question:</h2>
+        <p>Please select the nature of your relationship with this person:</p>
+        <label><input type="radio" name="relationship_en" value="friend"> A friend</label><br>
+        <label><input type="radio" name="relationship_en" value="romantic"> A romantic partner / Someone you love</label><br>
+        
+        <!-- Friend Section (hidden initially) -->
+        <div id="friendSection_en" class="hidden">
+          <h2>Test Questions - For Friends</h2>
+          <!-- Section 1: Thought & Attention -->
+          <fieldset>
+            <legend>Section 1: Thought & Attention</legend>
+            <p>1. How often do you think about this friend daily?</p>
+            <label><input type="radio" name="q1_friend_en" value="5"> Almost constantly</label><br>
+            <label><input type="radio" name="q1_friend_en" value="4"> Frequently</label><br>
+            <label><input type="radio" name="q1_friend_en" value="3"> Sometimes</label><br>
+            <label><input type="radio" name="q1_friend_en" value="2"> Rarely</label><br>
+            <label><input type="radio" name="q1_friend_en" value="1"> Never</label><br>
+            
+            <p>2. If something exciting happens, how likely are you to tell them first?</p>
+            <label><input type="radio" name="q2_friend_en" value="5"> Always</label><br>
+            <label><input type="radio" name="q2_friend_en" value="4"> Most of the time</label><br>
+            <label><input type="radio" name="q2_friend_en" value="3"> Occasionally</label><br>
+            <label><input type="radio" name="q2_friend_en" value="2"> Rarely</label><br>
+            <label><input type="radio" name="q2_friend_en" value="1"> Never</label><br>
+            
+            <p>3. <strong>Scenario:</strong> You are busy with work/studies, and this friend reaches out to chat. How do you respond?</p>
+            <label><input type="radio" name="q3_friend_en" value="5"> Drop everything and talk to them</label><br>
+            <label><input type="radio" name="q3_friend_en" value="3"> Respond but keep it brief</label><br>
+            <label><input type="radio" name="q3_friend_en" value="-1"> Ignore them until later</label><br>
+            <label><input type="radio" name="q3_friend_en" value="-3"> Get annoyed and avoid responding</label><br>
+          </fieldset>
+          
+          <!-- Section 2: Emotional Impact -->
+          <fieldset>
+            <legend>Section 2: Emotional Impact</legend>
+            <p>4. If they are upset, how does it affect you?</p>
+            <label><input type="radio" name="q4_friend_en" value="5"> Deeply, it ruins my day</label><br>
+            <label><input type="radio" name="q4_friend_en" value="4"> A lot, I feel sad for them</label><br>
+            <label><input type="radio" name="q4_friend_en" value="3"> Somewhat, but I move on</label><br>
+            <label><input type="radio" name="q4_friend_en" value="2"> A little, but not strongly</label><br>
+            <label><input type="radio" name="q4_friend_en" value="1"> Not at all</label><br>
+            
+            <p>5. If they were to move away, how would you feel?</p>
+            <label><input type="radio" name="q5_friend_en" value="5"> Devastated</label><br>
+            <label><input type="radio" name="q5_friend_en" value="4"> Very sad</label><br>
+            <label><input type="radio" name="q5_friend_en" value="3"> A little sad</label><br>
+            <label><input type="radio" name="q5_friend_en" value="2"> Indifferent</label><br>
+            <label><input type="radio" name="q5_friend_en" value="1"> Relieved</label><br>
+            
+            <p>6. <strong>Scenario:</strong> Your friend cancels plans at the last minute. How do you react?</p>
+            <label><input type="radio" name="q6_friend_en" value="5"> Completely understand and reschedule</label><br>
+            <label><input type="radio" name="q6_friend_en" value="3"> Disappointed but move on</label><br>
+            <label><input type="radio" name="q6_friend_en" value="-1"> Annoyed and question their loyalty</label><br>
+            <label><input type="radio" name="q6_friend_en" value="-3"> Cut ties and hold a grudge</label><br>
+          </fieldset>
+          
+          <!-- Section 3: Priority & Support -->
+          <fieldset>
+            <legend>Section 3: Priority & Support</legend>
+            <p>7. If they needed your help urgently, how likely would you be to drop everything?</p>
+            <label><input type="radio" name="q7_friend_en" value="5"> 100% – I’d be there immediately</label><br>
+            <label><input type="radio" name="q7_friend_en" value="4"> Very likely</label><br>
+            <label><input type="radio" name="q7_friend_en" value="3"> Depends on the situation</label><br>
+            <label><input type="radio" name="q7_friend_en" value="2"> Not very likely</label><br>
+            <label><input type="radio" name="q7_friend_en" value="1"> I wouldn’t</label><br>
+            
+            <p>8. Do you prioritize spending time with them over other commitments?</p>
+            <label><input type="radio" name="q8_friend_en" value="5"> Always</label><br>
+            <label><input type="radio" name="q8_friend_en" value="4"> Most of the time</label><br>
+            <label><input type="radio" name="q8_friend_en" value="3"> Sometimes</label><br>
+            <label><input type="radio" name="q8_friend_en" value="2"> Rarely</label><br>
+            <label><input type="radio" name="q8_friend_en" value="1"> Never</label><br>
+            
+            <p>9. <strong>Scenario:</strong> You make plans with a friend, but something better comes up. What do you do?</p>
+            <label><input type="radio" name="q9_friend_en" value="5"> Stick to my original plans</label><br>
+            <label><input type="radio" name="q9_friend_en" value="3"> Try to reschedule</label><br>
+            <label><input type="radio" name="q9_friend_en" value="-1"> Cancel and make excuses</label><br>
+            <label><input type="radio" name="q9_friend_en" value="-3"> Ignore them completely</label><br>
+          </fieldset>
+          
+          <!-- Section 4: Presence & Absence -->
+          <fieldset>
+            <legend>Section 4: Presence & Absence</legend>
+            <p>10. How do you feel when they don’t respond to your messages for a long time?</p>
+            <label><input type="radio" name="q10_friend_en" value="5"> Extremely anxious</label><br>
+            <label><input type="radio" name="q10_friend_en" value="4"> A little worried</label><br>
+            <label><input type="radio" name="q10_friend_en" value="3"> Curious, but not bothered</label><br>
+            <label><input type="radio" name="q10_friend_en" value="2"> Barely notice</label><br>
+            <label><input type="radio" name="q10_friend_en" value="1"> I don’t care</label><br>
+            
+            <p>11. How would you feel if they were no longer part of your life?</p>
+            <label><input type="radio" name="q11_friend_en" value="5"> Heartbroken</label><br>
+            <label><input type="radio" name="q11_friend_en" value="4"> Very sad</label><br>
+            <label><input type="radio" name="q11_friend_en" value="3"> A little sad</label><br>
+            <label><input type="radio" name="q11_friend_en" value="2"> Indifferent</label><br>
+            <label><input type="radio" name="q11_friend_en" value="1"> Relieved</label><br>
+          </fieldset>
+        </div>
+        
+        <!-- Romantic Partner Section (hidden initially) -->
+        <div id="romanticSection_en" class="hidden">
+          <h2>Test Questions - For Romantic Partners</h2>
+          <!-- Section 1: Thought & Attention -->
+          <fieldset>
+            <legend>Section 1: Thought & Attention</legend>
+            <p>1. How often do you think about your partner daily?</p>
+            <label><input type="radio" name="q1_romantic_en" value="5"> Almost constantly</label><br>
+            <label><input type="radio" name="q1_romantic_en" value="4"> Frequently</label><br>
+            <label><input type="radio" name="q1_romantic_en" value="3"> Sometimes</label><br>
+            <label><input type="radio" name="q1_romantic_en" value="2"> Rarely</label><br>
+            <label><input type="radio" name="q1_romantic_en" value="1"> Never</label><br>
+            
+            <p>2. When you experience strong emotions, how often do you turn to them for support?</p>
+            <label><input type="radio" name="q2_romantic_en" value="5"> Always</label><br>
+            <label><input type="radio" name="q2_romantic_en" value="4"> Most of the time</label><br>
+            <label><input type="radio" name="q2_romantic_en" value="3"> Occasionally</label><br>
+            <label><input type="radio" name="q2_romantic_en" value="2"> Rarely</label><br>
+            <label><input type="radio" name="q2_romantic_en" value="1"> Never</label><br>
+            
+            <p>3. <strong>Scenario:</strong> You see a romantic message from your partner but are preoccupied. What do you do?</p>
+            <label><input type="radio" name="q3_romantic_en" value="5"> Immediately respond with affection</label><br>
+            <label><input type="radio" name="q3_romantic_en" value="3"> Reply but keep it brief</label><br>
+            <label><input type="radio" name="q3_romantic_en" value="-1"> Ignore it until later</label><br>
+            <label><input type="radio" name="q3_romantic_en" value="-3"> Feel annoyed or dismissive</label><br>
+          </fieldset>
+          
+          <!-- Section 2: Emotional Impact -->
+          <fieldset>
+            <legend>Section 2: Emotional Impact</legend>
+            <p>4. How much does their happiness affect your own?</p>
+            <label><input type="radio" name="q4_romantic_en" value="5"> Completely, their happiness is my happiness</label><br>
+            <label><input type="radio" name="q4_romantic_en" value="4"> A lot, I feel deeply connected</label><br>
+            <label><input type="radio" name="q4_romantic_en" value="3"> Somewhat, but I maintain independence</label><br>
+            <label><input type="radio" name="q4_romantic_en" value="2"> A little, but not strongly</label><br>
+            <label><input type="radio" name="q4_romantic_en" value="1"> Not at all</label><br>
+            
+            <p>5. If your relationship ended, how would you feel?</p>
+            <label><input type="radio" name="q5_romantic_en" value="5"> Devastated</label><br>
+            <label><input type="radio" name="q5_romantic_en" value="4"> Very sad</label><br>
+            <label><input type="radio" name="q5_romantic_en" value="3"> A little sad</label><br>
+            <label><input type="radio" name="q5_romantic_en" value="2"> Indifferent</label><br>
+            <label><input type="radio" name="q5_romantic_en" value="1"> Relieved</label><br>
+            
+            <p>6. <strong>Scenario:</strong> Your partner forgets an important date. How do you handle it?</p>
+            <label><input type="radio" name="q6_romantic_en" value="5"> Laugh it off and remind them</label><br>
+            <label><input type="radio" name="q6_romantic_en" value="3"> Feel a bit sad but let it go</label><br>
+            <label><input type="radio" name="q6_romantic_en" value="-1"> Get upset and argue</label><br>
+            <label><input type="radio" name="q6_romantic_en" value="-3"> Take it as proof they don’t care</label><br>
+          </fieldset>
+          
+          <!-- Section 3: Priority & Support -->
+          <fieldset>
+            <legend>Section 3: Priority & Support</legend>
+            <p>7. If they needed emotional support, how likely are you to prioritize them over everything else?</p>
+            <label><input type="radio" name="q7_romantic_en" value="5"> 100% – I’d be there immediately</label><br>
+            <label><input type="radio" name="q7_romantic_en" value="4"> Very likely</label><br>
+            <label><input type="radio" name="q7_romantic_en" value="3"> Depends on the situation</label><br>
+            <label><input type="radio" name="q7_romantic_en" value="2"> Not very likely</label><br>
+            <label><input type="radio" name="q7_romantic_en" value="1"> I wouldn’t</label><br>
+            
+            <p>8. How much do you value quality time with them over other responsibilities?</p>
+            <label><input type="radio" name="q8_romantic_en" value="5"> Always</label><br>
+            <label><input type="radio" name="q8_romantic_en" value="4"> Most of the time</label><br>
+            <label><input type="radio" name="q8_romantic_en" value="3"> Sometimes</label><br>
+            <label><input type="radio" name="q8_romantic_en" value="2"> Rarely</label><br>
+            <label><input type="radio" name="q8_romantic_en" value="1"> Never</label><br>
+            
+            <p>9. <strong>Scenario:</strong> You are out with friends, and your partner calls needing to talk. What do you do?</p>
+            <label><input type="radio" name="q9_romantic_en" value="5"> Step away and take the call</label><br>
+            <label><input type="radio" name="q9_romantic_en" value="3"> Text them and talk later</label><br>
+            <label><input type="radio" name="q9_romantic_en" value="-1"> Ignore them until I’m free</label><br>
+            <label><input type="radio" name="q9_romantic_en" value="-3"> Get annoyed and avoid responding</label><br>
+          </fieldset>
+          
+          <!-- Section 4: Presence & Absence -->
+          <fieldset>
+            <legend>Section 4: Presence & Absence</legend>
+            <p>10. How do you feel when they don’t communicate with you for an extended period?</p>
+            <label><input type="radio" name="q10_romantic_en" value="5"> Extremely anxious and worried</label><br>
+            <label><input type="radio" name="q10_romantic_en" value="4"> A little concerned</label><br>
+            <label><input type="radio" name="q10_romantic_en" value="3"> Curious, but not distressed</label><br>
+            <label><input type="radio" name="q10_romantic_en" value="2"> Barely notice</label><br>
+            <label><input type="radio" name="q10_romantic_en" value="1"> I don’t care</label><br>
+            
+            <p>11. If they suddenly disappeared from your life, how would you feel?</p>
+            <label><input type="radio" name="q11_romantic_en" value="5"> Heartbroken</label><br>
+            <label><input type="radio" name="q11_romantic_en" value="4"> Very sad</label><br>
+            <label><input type="radio" name="q11_romantic_en" value="3"> A little sad</label><br>
+            <label><input type="radio" name="q11_romantic_en" value="2"> Indifferent</label><br>
+            <label><input type="radio" name="q11_romantic_en" value="1"> Relieved</label><br>
+          </fieldset>
+        </div>
+        
+        <!-- Submit Button for both versions -->
+        <button type="submit">Submit Test</button>
+      </form>
+      
+      <!-- Result Displays -->
+      <div id="result_en" class="result"></div>
+      <div id="result_gr" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    // Function to show the correct section based on relationship selection
+    function showSection(formPrefix) {
+      const relationship = document.querySelector('input[name="relationship_' + formPrefix + '"]:checked');
+      if (relationship) {
+        if (relationship.value === 'friend') {
+          document.getElementById('friendSection_' + formPrefix).classList.remove('hidden');
+          document.getElementById('romanticSection_' + formPrefix).classList.add('hidden');
+        } else if (relationship.value === 'romantic') {
+          document.getElementById('romanticSection_' + formPrefix).classList.remove('hidden');
+          document.getElementById('friendSection_' + formPrefix).classList.add('hidden');
+        }
+      }
+    }
+    
+    // Add event listeners for the preliminary relationship radio buttons (English & Greek)
+    document.querySelectorAll('input[name="relationship_en"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        showSection('en');
+      });
+    });
+    document.querySelectorAll('input[name="relationship_gr"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        showSection('gr');
+      });
+    });
+    
+    // Function to calculate the total score and display the result with avatar and explanation
+    function calculateResult(formPrefix) {
+      let totalScore = 0;
+      let resultDiv = document.getElementById('result_' + formPrefix);
+      const relationship = document.querySelector('input[name="relationship_' + formPrefix + '"]:checked');
+      
+      if (!relationship) {
+        resultDiv.innerHTML = "<p>Please select a relationship type.</p>";
+        return;
+      }
+      
+      if (relationship.value === 'friend') {
+        const fields = ['q1_friend_', 'q2_friend_', 'q3_friend_', 'q4_friend_', 'q5_friend_', 'q6_friend_', 'q7_friend_', 'q8_friend_', 'q9_friend_', 'q10_friend_', 'q11_friend_'];
+        fields.forEach(field => {
+          const answer = document.querySelector('input[name="' + field + formPrefix + '"]:checked');
+          if (answer) {
+            totalScore += parseInt(answer.value);
+          }
+        });
+      } else if (relationship.value === 'romantic') {
+        const fields = ['q1_romantic_', 'q2_romantic_', 'q3_romantic_', 'q4_romantic_', 'q5_romantic_', 'q6_romantic_', 'q7_romantic_', 'q8_romantic_', 'q9_romantic_', 'q10_romantic_', 'q11_romantic_'];
+        fields.forEach(field => {
+          const answer = document.querySelector('input[name="' + field + formPrefix + '"]:checked');
+          if (answer) {
+            totalScore += parseInt(answer.value);
+          }
+        });
+      }
+      
+      // Determine the result category based on the total score
+      let resultCategory = "";
+      let resultImage = "";
+      let explanation = "";
+      
+      if (totalScore >= 40) {
+        resultCategory = "Deeply Connected (Highest Importance)";
+        resultImage = "https://api.dicebear.com/6.x/gridy/svg?seed=deeply_connected";
+        explanation = "This person is an integral part of your life. Your emotional dependency on them suggests a deep level of bonding, trust, and attachment. You likely feel a strong need for their presence, and they impact your well-being significantly.";
+      } else if (totalScore >= 30) {
+        resultCategory = "Very Important";
+        resultImage = "https://api.dicebear.com/6.x/gridy/svg?seed=very_important";
+        explanation = "They hold a special place in your life, though not absolute priority. Your relationship is based on respect, trust, and a healthy emotional connection.";
+      } else if (totalScore >= 20) {
+        resultCategory = "Important but Not Essential";
+        resultImage = "https://api.dicebear.com/6.x/gridy/svg?seed=important";
+        explanation = "You care about this person, but they are not at the center of your life. While you appreciate their presence, your emotional stability is not heavily dependent on them.";
+      } else if (totalScore >= 10) {
+        resultCategory = "Somewhat Important";
+        resultImage = "https://api.dicebear.com/6.x/gridy/svg?seed=somewhat_important";
+        explanation = "This person matters to you to an extent, but they don’t play a major role in your emotional world.";
+      } else {
+        resultCategory = "Not Important at All";
+        resultImage = "https://api.dicebear.com/6.x/gridy/svg?seed=not_important";
+        explanation = "This person has little to no impact on your life. They may be someone you used to care about but have grown distant from, or someone who never really played a significant role in your emotional well-being.";
+      }
+      
+      // Display the result based on the language selected
+      if (formPrefix === 'en') {
+        resultDiv.innerHTML = `<h2>Your Result: ${resultCategory}</h2>
+          <img src="${resultImage}" alt="${resultCategory}">
+          <p>${explanation}</p>
+          <p>Total Score: ${totalScore}</p>`;
+      } else if (formPrefix === 'gr') {
+        let resultText = "";
+        let explanationGR = "";
+        switch(resultCategory) {
+          case "Deeply Connected (Highest Importance)":
+            resultText = "Πολύ Συνδεδεμένοι (Υψηλότερη Σημασία)";
+            explanationGR = "Αυτό το άτομο είναι αναπόσπαστο μέρος της ζωής σου. Η συναισθηματική εξάρτησή σου υποδηλώνει βαθιά σύνδεση, εμπιστοσύνη και προσκόλληση. Πιθανότατα αισθάνεσαι μια έντονη ανάγκη για την παρουσία τους, και επηρεάζουν σημαντικά την ευημερία σου.";
+            break;
+          case "Very Important":
+            resultText = "Πολύ Σημαντικός/ή";
+            explanationGR = "Κατέχει μια ξεχωριστή θέση στη ζωή σου, αν και όχι απόλυτη προτεραιότητα. Η σχέση σας βασίζεται στον σεβασμό, την εμπιστοσύνη και μια υγιή συναισθηματική σύνδεση.";
+            break;
+          case "Important but Not Essential":
+            resultText = "Σημαντικός/ή αλλά όχι Καίριος/α";
+            explanationGR = "Φροντίζεις για αυτό το άτομο, αλλά δεν είναι το κέντρο της ζωής σου. Αν και εκτιμάς την παρουσία τους, η συναισθηματική σου σταθερότητα δεν εξαρτάται βαρύτατα από αυτούς.";
+            break;
+          case "Somewhat Important":
+            resultText = "Μερικώς Σημαντικός/ή";
+            explanationGR = "Αυτό το άτομο έχει σημασία σε κάποιο βαθμό, αλλά δεν παίζει κυρίαρχο ρόλο στον συναισθηματικό σου κόσμο.";
+            break;
+          case "Not Important at All":
+            resultText = "Καθόλου Σημαντικός/ή";
+            explanationGR = "Αυτό το άτομο έχει ελάχιστη ή καθόλου επίδραση στη ζωή σου. Μπορεί να ήταν κάποιος που κάποτε σε επηρέαζε, αλλά πλέον έχετε απομακρυνθεί ή ποτέ δεν είχε σημαντικό ρόλο στην ευημερία σου.";
+            break;
+          default:
+            resultText = resultCategory;
+            explanationGR = explanation;
+        }
+        resultDiv.innerHTML = `<h2>Το Αποτέλεσμα Σου: ${resultText}</h2>
+          <img src="${resultImage}" alt="${resultText}">
+          <p>${explanationGR}</p>
+          <p>Συνολική Βαθμολογία: ${totalScore}</p>`;
+      }
+    }
+    
+    // Handle form submission for English
+    document.getElementById('testForm_en').addEventListener('submit', function(e) {
+      e.preventDefault();
+      calculateResult('en');
+    });
+    // Handle form submission for Greek
+    document.getElementById('testForm_gr').addEventListener('submit', function(e) {
+      e.preventDefault();
+      calculateResult('gr');
+    });
+    
+    // Language toggle functionality
+    const toggleButton = document.getElementById('toggleLang');
+    toggleButton.addEventListener('click', function() {
+      const englishContent = document.querySelector('.lang-en');
+      const greekContent = document.querySelector('.lang-gr');
+      if (englishContent.style.display === 'none') {
+        englishContent.style.display = 'block';
+        greekContent.style.display = 'none';
+        toggleButton.textContent = 'Switch to Greek';
+      } else {
+        englishContent.style.display = 'none';
+        greekContent.style.display = 'block';
+        toggleButton.textContent = 'Switch to English';
+      }
+    });
+  </script>
+</body>
+</html>
